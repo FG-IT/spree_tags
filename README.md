@@ -7,7 +7,7 @@ Introduction goes here.
 1. Add this extension to your Gemfile with this line:
 
     ```ruby
-    gem 'spree_tags', github: '[your-github-handle]/spree_tags'
+    gem 'spree_tags', github: 'OlivetCommerce/spree_tags'
     ```
 
 2. Install the gem using Bundler
