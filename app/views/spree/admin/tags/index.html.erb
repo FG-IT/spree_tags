@@ -18,7 +18,7 @@
   <% @tags.each do |tag|%>
     <tr>
       <% if(current_spree_user.has_spree_role?(:admin)) %>
-      <td class="align-center"><%= link_to tag.name, edit_admin_tag_path(tag.id)  %></td>
+      <td class="align-center"><%= link_to tag.name, admin_tag_path(tag.id)  %></td>
       <% else %>
       <td class="align-center"><%= tag.name %></td>
       <% end %>
