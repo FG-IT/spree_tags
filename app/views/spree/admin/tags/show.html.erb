@@ -7,6 +7,9 @@
       </ol>
     </nav>
   </div>
+  <div class="text-right">
+    <%= link_to 'Download', download_admin_tag_path(@tag), method: :put, target: '_blank', class: 'btn btn-link'%>
+  </div>
 <% end %>
 
 <% if @products.any? %>
