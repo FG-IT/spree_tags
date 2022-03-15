@@ -1,7 +1,11 @@
 Spree::Core::Engine.add_routes do
   # Add your extension routes here
   namespace :admin do
-  	resources :tags
+  	resources :tags do 
+      member do 
+        put :download
+      end
+  	end
   end
 
   namespace :api, defaults: { format: 'json' } do
