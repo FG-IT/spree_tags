@@ -17,19 +17,18 @@
   <tbody>
   <% @tags.each do |tag|%>
     <tr>
-      <% if(current_spree_user.has_spree_role?(:admin)) %>
-      <td class="align-center"><%= link_to tag.name, admin_tag_path(tag.id)  %></td>
+      <% if can?(:edit, tag) %>
+        <td class="align-center"><%= link_to tag.name, admin_tag_path(tag.id)  %></td>
       <% else %>
-      <td class="align-center"><%= tag.name %></td>
+        <td class="align-center"><%= tag.name %></td>
       <% end %>
       <td class="align-center"><%= tag.products.length  %></td>
-
-      <% if(current_spree_user.has_spree_role?(:admin)) %>
-      <td data-hook="admin_tags_index_row_actions" class="actions">
-        <%= link_to_edit tag, no_text: true, class: 'edit' %>
-        &nbsp;
-        <%= link_to_delete tag, no_text: true %>
-      </td>
+      <% if can?(:edit, tag) %>
+        <td data-hook="admin_tags_index_row_actions" class="actions">
+          <%= link_to_edit tag, no_text: true, class: 'edit' %>
+          &nbsp;
+          <%= link_to_delete tag, no_text: true %>
+        </td>
       <% end %>
     </tr>
   <% end %>

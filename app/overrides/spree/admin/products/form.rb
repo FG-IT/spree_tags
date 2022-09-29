@@ -8,7 +8,7 @@ Deface::Override.new(
                   <%= f.label :tag_ids, Spree.t(:tags) %>
 
                   <% if can? :manage, Spree::Tag %>
-                    <%= f.select :tag_ids, options_from_collection_for_select(Spree::Tag.all, :id, :name, @product.tag_ids), { include_hidden: true }, multiple: true, class: 'select2-hidden-accessible' %>
+                    <%= f.select :tag_ids, options_from_collection_for_select(Spree::Tag.accessible_by(current_ability, :show), :id, :name, @product.tag_ids), { include_hidden: true }, multiple: true, class: 'select2-hidden-accessible' %>
                   <% elsif @product.tags.any? %>
                     <ul class="text_list">
                       <% @product.tags.each do |tag| %>
